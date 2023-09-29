@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ name }}</h1>
+
+    {% set dayNames = ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'] %}
+
+    <ul>
+        {% for week in calendar %}
+            {% for day in week %}
+                <li>
+                    {% if day != null %}
+                        {{ day.day }} - {{ dayNames[day.dayOfWeek - 1] }}
+                    {% endif %}
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+{% endblock %}
